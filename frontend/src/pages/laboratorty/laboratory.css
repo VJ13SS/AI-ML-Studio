@@ -1,0 +1,239 @@
+.laboratory {
+  display: flex;
+  flex-direction: column;
+  height: 95vh;
+  gap: 0;
+  overflow: hidden;
+}
+
+.laboratory-header {
+  flex-shrink: 0;
+  margin-bottom: 24px;
+}
+
+.laboratory-header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 4px;
+  line-height: 1.3;
+}
+
+.laboratory-subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.laboratory-info{
+    display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /*flex: 1;*/
+  padding:20px;
+  background: #ffffff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  width: 300px;
+  height: fit-content;
+
+}
+
+.laboratory-info span{
+    font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 4px;
+  line-height: 1.3;
+}
+
+.laboratory-info::-webkit-scrollbar {
+  width: 4px;
+}
+.laboratory-info::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 4px;
+}
+.laboratory-info::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.laboratory-info-item{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-left: 10px;
+}
+
+.laboratory-info-item span,.laboratory-info-item ul li{
+    font-size: 13px;
+    color: blue;
+    font-weight: 600;
+}
+
+.laboratory-info-item ul{
+      padding-left: 20px;
+}
+
+.laboratory-info-item ul li{
+  color: #6b7280;
+  margin-bottom: 5px;
+}
+
+.laboratory-main-section{
+  display:  flex;
+  justify-content: space-between;
+  gap: 50px;
+  padding: 10px;
+}
+
+.laboratory-content{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 90vh;
+  overflow: scroll;
+}
+
+.laboratory-block{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.laboratory-step{
+  color: blue;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.laboratory-step-title{
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.laboratory-problem-types{
+  display: flex;
+  gap: 10px;
+}
+
+.laboratory button{
+  width: fit-content;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.laboratory-problem-types button{
+  border: 2px solid #6b7280;
+  color: #6b7280;
+  font-weight: 600;
+  background-color: rgb(236, 232, 232);
+  transition: all 0.3s ease;
+}
+
+.laboratory-problem-types .active{
+  color: green;
+  border: 2px solid green;
+  background-color: rgb(153, 238, 153);
+}
+
+.laboratory-block label{
+ 
+  width: 100px;
+  padding: 5px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.laboratory-block label i{
+  font-size: 100px;
+  color: gray;
+}
+
+.laboratory-block input{
+  height: 30px;
+  width: 200px;
+  font-size: 13px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  outline: none;
+  padding-left: 5px;
+}
+
+.laboratory-content .examine{
+  background-color: indigo;
+  color: white;
+  border: none;
+  width: 200px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+
+.laboratory-results{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 80vh;
+  overflow: scroll;
+  width: 500px;
+}
+
+.laboratory-results .resilt-problem{
+  font-size: 18px;
+  color: blue;
+  font-weight: 600;
+}
+
+.laboratory-results ul{
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-left: 25px;
+}
+
+.laboratory-results ul li{
+  font-size: 14px;
+}
+
+.model {
+  font-weight: 600;
+  color: gray;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /*flex: 1;*/
+  padding:20px;
+  background: #ffffff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  width: 500px;
+}
+
+.model span{
+  font-size: 16px;
+  color: gray;
+}
+
+.better_model{
+ border: 3px solid green;
+ background-color: rgb(190, 234, 190);
+ color: green;
+}
+
+.better_model span{
+  color: green;
+}
+
+.analyse_info{
+  color: gray;
+  font-size: 20px;
+  font-weight: bold;
+}

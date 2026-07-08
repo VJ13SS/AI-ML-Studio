@@ -1,0 +1,199 @@
+.projects {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 0;
+}
+
+
+.search-projects-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 0 20px;
+  background-color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.search-projects {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  background-color: #ffffff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 14px;
+  color: #9ca3af;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-projects:focus-within {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+  color: #6b7280;
+}
+
+.search-projects svg {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.search-projects input {
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  padding-left: 4px;
+  outline: none;
+  font-size: 14px;
+  color: #111827;
+  font-family: "Inter", sans-serif;
+}
+
+.search-projects input::placeholder {
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+.search-projects-container button {
+  padding: 10px 24px;
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  background: linear-gradient(135deg, #7c3aed 0%, #9b1fe8 100%);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.25);
+  flex-shrink: 0;
+}
+
+.search-projects-container button:hover {
+  background: linear-gradient(135deg, #6d28d9 0%, #7e22ce 100%);
+  box-shadow: 0 4px 14px rgba(109, 40, 217, 0.4);
+  transform: translateY(-1px);
+}
+
+
+.projects-container {
+  flex: 1;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  align-items: start;
+  padding-bottom: 32px;
+}
+
+
+.project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 20px 20px;
+  background: #ffffff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  text-align: center;
+}
+
+.project:hover {
+  box-shadow: 0 8px 24px rgba(109, 40, 217, 0.12);
+  transform: translateY(-3px);
+}
+
+
+.project-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ede9fe 0%, #f3e8ff 100%);
+  color: #7c3aed;
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.project-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.project-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1f1f2e;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.project-description {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #6b7280;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+.project-links {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.project-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+/* Dataset button — outlined ghost style */
+.btn-dataset {
+  color: #6b7280;
+  background: transparent;
+  border: 1.5px solid #d1d5db;
+}
+
+.btn-dataset:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+  color: #374151;
+}
+
+/* View Project button — filled purple */
+.btn-project {
+  color: #ffffff;
+  background: linear-gradient(135deg, #7c3aed 0%, #9b1fe8 100%);
+  border: 1.5px solid transparent;
+}
+
+.btn-project:hover {
+  background: linear-gradient(135deg, #6d28d9 0%, #7e22ce 100%);
+  box-shadow: 0 4px 12px rgba(109, 40, 217, 0.35);
+}

@@ -1,0 +1,46 @@
+.sidebar-container img {
+    width: 200px;
+}
+
+.sidebar {
+    height: 100vh;
+    width: fit-content;
+    padding: 5px;
+    border-right: 1px solid rgb(198, 195, 195);
+}
+
+.sidebar p {
+    display: flex;
+    gap: 10px;
+    margin: 20px;
+    padding: 7px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-weight: bold;
+    color: slategray;
+}
+
+.sidebar p:hover {
+    background-color: rgb(233, 213, 248);
+    color: rgb(150, 31, 235);
+}
+
+@media (max-width:900px){
+    .sidebar p span{
+        display: none;
+    }
+
+    .sidebar p{
+        font-size: 25px;
+    }
+
+    .sidebar{
+        padding: 1px;
+        display: none;
+    }
+
+    .sidebar-container img {
+    display: none;
+}
+}

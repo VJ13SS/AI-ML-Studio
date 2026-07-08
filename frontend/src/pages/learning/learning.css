@@ -1,0 +1,265 @@
+/* ── Learning page wrapper ───────────────────────────────── */
+.learning-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  gap: 0;
+}
+
+/* ── Header styling ─────────────────────────────────────── */
+.learning-header {
+  flex-shrink: 0;
+  margin-bottom: 24px;
+}
+
+.learning-header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 4px;
+  line-height: 1.3;
+}
+
+.learning-subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* ── Content Layout ─────────────────────────────────────── */
+.learning-content {
+  display: flex;
+  gap: 32px;
+  align-items: stretch;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Left sidebar */
+.learning-sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding-right: 8px;
+  height: 100%;
+}
+
+.sidebar-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #9ca3af;
+  font-weight: 700;
+  margin: 0 0 12px 10px;
+  flex-shrink: 0;
+}
+
+.learning-categories-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: auto;
+  flex: 1;
+  padding-bottom: 20px;
+}
+
+/* Hide scrollbar for categories list, but keep scrolling functionality if many items */
+.learning-categories-list::-webkit-scrollbar {
+  width: 4px;
+}
+.learning-categories-list::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 4px;
+}
+.learning-categories-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.category-item-btn {
+  background: transparent;
+  border: none;
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #4b5563;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.category-item-btn:hover {
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
+.category-item-btn.active {
+  background-color: #f5f3ff;
+  color: #7c3aed;
+  font-weight: 600;
+}
+
+/* Right main area */
+.learning-main {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  overflow-y: auto;
+  padding-right: 12px;
+  padding-bottom: 40px;
+}
+
+/* Scrollbar styling for main content area to make it look premium */
+.learning-main::-webkit-scrollbar {
+  width: 6px;
+}
+.learning-main::-webkit-scrollbar-thumb {
+  background: #ddd6fe;
+  border-radius: 10px;
+}
+.learning-main::-webkit-scrollbar-thumb:hover {
+  background: #c084fc;
+}
+.learning-main::-webkit-scrollbar-track {
+  background: #f9fafb;
+  border-radius: 10px;
+}
+
+.learning-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Concept Card ────────────────────────────────────────── */
+.learning-card {
+  background-color: #ffffff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 22px 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.learning-card:hover {
+  transform: translateY(-2px);
+  border-color: #ddd6fe;
+  box-shadow: 0 10px 20px -5px rgba(124, 58, 237, 0.06), 
+              0 8px 8px -6px rgba(124, 58, 237, 0.06);
+}
+
+.learning-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.learning-card-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Custom Colored Badges */
+.learning-card-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.learning-card-badge.badge-purple {
+  background-color: #f5f3ff;
+  color: #7c3aed;
+  border: 1px solid #e9d5ff;
+}
+
+.learning-card-badge.badge-blue {
+  background-color: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+}
+
+.learning-card-badge.badge-green {
+  background-color: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #bbf7d0;
+}
+
+.learning-card-badge.badge-indigo {
+  background-color: #e0e7ff;
+  color: #4f46e5;
+  border: 1px solid #c7d2fe;
+}
+
+.learning-card-badge.badge-cyan {
+  background-color: #ecfeff;
+  color: #0891b2;
+  border: 1px solid #a5f3fc;
+}
+
+.learning-card-badge.badge-orange {
+  background-color: #fff7ed;
+  color: #ea580c;
+  border: 1px solid #fed7aa;
+}
+
+.learning-card-badge.badge-gray {
+  background-color: #f9fafb;
+  color: #4b5563;
+  border: 1px solid #e5e7eb;
+}
+
+/* Description */
+.learning-card-description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #4b5563;
+  margin: 0 0 16px;
+}
+
+/* Link with Arrow Animation */
+.learning-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #7c3aed;
+  text-decoration: none;
+  align-self: flex-end;
+  margin-top: auto;
+  transition: color 0.2s ease, gap 0.2s ease;
+}
+
+.learning-card-link:hover {
+  color: #5b21b6;
+  gap: 8px;
+}
+
+.learning-card-link .arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.learning-card-link:hover .arrow {
+  transform: translateX(2px);
+}

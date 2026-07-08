@@ -1,0 +1,21 @@
+nav img{
+    width: 200px;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 10px;
+}
+
+nav i{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+@media (min-width:901px){
+    nav{
+        display: none;
+    }
+}
