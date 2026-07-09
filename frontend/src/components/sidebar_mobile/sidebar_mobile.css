@@ -1,37 +1,96 @@
-.sidebar_mobile_container img {
-    width: 200px;
+.sidebar_mobile_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    z-index: 9;
+    transition: opacity 0.3s ease;
 }
 
-.sidebar_mobile {
+.sidebar_mobile_container {
     height: 100vh;
-    width: fit-content;
-    position: absolute;
+    width: 280px;
+    max-width: 80vw;
+    position: fixed;
     top: 0;
     right: 0;
-    padding: 5px;
-    border-right: 1px solid rgb(198, 195, 195);
-}
-
-.sidebar_mobile p {
+    padding: 20px 24px;
+    background-color: white;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.08);
+    z-index: 10;
+    border-left: 1px solid #f3f4f6;
     display: flex;
-    gap: 10px;
-    margin: 20px;
-    padding: 7px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    font-weight: bold;
-    color: slategray;
+    flex-direction: column;
 }
 
-.sidebar_mobile p:hover {
-    background-color: rgb(233, 213, 248);
+.sidebar_mobile_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f3f4f6;
+    margin-bottom: 20px;
+}
+
+.sidebar_mobile_header img {
+    height: 32px;
+    width: auto;
+    object-fit: contain;
+}
+
+.sidebar_mobile_header i {
+    font-size: 24px;
+    color: #374151;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.sidebar_mobile_header i:hover {
+    background-color: #f3f4f6;
+}
+
+.sidebar_mobile_links {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sidebar_mobile_links p {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 4px 0;
+    padding: 10px 16px;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    font-weight: 500;
+    color: #4b5563;
+    font-size: 15px;
+}
+
+.sidebar_mobile_links p:hover {
+    background-color: #f3e8ff;
     color: rgb(150, 31, 235);
 }
 
+.sidebar_mobile_links p svg {
+    font-size: 18px;
+}
 
-@media(min-width:900px){
-    .sidebar_mobile{
-        display: none;
+@media(min-width: 901px) {
+    .sidebar_mobile_container,
+    .sidebar_mobile_overlay {
+        display: none !important;
     }
 }

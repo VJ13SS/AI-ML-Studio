@@ -56,8 +56,11 @@ def laboratory_nlp_classification(df,target,test_size = 0.2):
         res_item["metrics"].append({"metric":"F1 Score","value":f1})
 
         if f1 >= better_f1:
-            better_models.append(name)
-            better_f1 = f1
+            if f1 == better_f1:
+                better_models.append(name)
+            else:
+                better_models = [name]
+                better_f1 = f1
         
         
         results.append(res_item)

@@ -72,7 +72,7 @@ export default function About() {
           For Queries and Suggestions <span>Contact Us</span>
         </p>
         <div className="contact-icons">
-          <a href="mailto:viswajith5749@gmail.com" class="mail">
+          <a href="mailto:viswajith5749@gmail.com" className="mail">
             <i>
               <LuMail />
             </i>

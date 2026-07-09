@@ -65,8 +65,10 @@ export default function Home() {
             >
               {card.icon}
             </div>
-            <span className="home-card-title">{card.title}</span>
-            <p className="home-card-desc">{card.desc}</p>
+            <div className="home-card-info">
+              <span className="home-card-title">{card.title}</span>
+              <p className="home-card-desc">{card.desc}</p>
+            </div>
           </NavLink>
         ))}
       </div>

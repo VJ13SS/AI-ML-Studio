@@ -58,8 +58,11 @@ def laboratory_regression(df,target,test_size = 0.2):
         
          # models with higher r2 score indicates a good fit of the regression model
         if r2 >= better_r2:
-            better_models.append(name)
-            better_r2 = r2
+            if r2 == better_r2:
+                better_models.append(name)
+            else:
+                better_models = [name]
+                better_r2 = r2
         
         results.append(res_item)
     

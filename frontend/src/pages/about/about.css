@@ -105,10 +105,44 @@ color: #4b5563;
 
 @media(max-width:950px){
     .about-section{
-        overflow: scroll;
+        height: auto;
+        overflow: visible;
+        gap: 20px;
     }
     .about-container{
         flex-direction: column;
+        text-align: center;
+    }
+    .about-container img{
+        max-width: 320px;
+        width: 100%;
+        margin: 10px auto 0;
+    }
+    .about-cards{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+        padding: 16px 0;
+    }
+    .about-card{
+        gap: 6px;
+        padding: 14px;
+    }
+}
+
+@media(max-width:500px){
+    .about-section h1{
+        font-size: 24px;
+        text-align: center;
+    }
+    .about-container .about-text p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    .about-footer {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
     }
 }
 

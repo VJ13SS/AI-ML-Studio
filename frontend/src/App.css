@@ -50,3 +50,12 @@ body,
   flex-direction: column;
   background-color: #ffffff;
 }
+
+@media (max-width: 900px) {
+  .app-links {
+    display: none;
+  }
+  .app-information {
+    padding: 16px;
+  }
+}

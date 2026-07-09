@@ -10,13 +10,14 @@ import Projects from './pages/projects/projects'
 import Laboratory from './pages/laboratorty/laboratory'
 import Learning from './pages/learning/learning'
 import Blogs from './pages/blogs/blogs'
+import SidebarMobile from './components/sidebar_mobile/sidebar_mobile'
 
 export default function App(){
   return(
     <div className="app">
       <Navbar />
       <div className="app-content">
-        
+        <SidebarMobile />
         <div className="app-links">
           <Sidebar />
         </div>

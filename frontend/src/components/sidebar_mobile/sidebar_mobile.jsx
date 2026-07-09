@@ -8,11 +8,14 @@ import {
   FaFlask,
   FaGraduationCap,
   FaCross,
+  FaXRay,
+  FaClosedCaptioning,
 } from "react-icons/fa";
 import {
   LuBookOpenText,
   LuCircleUser,
   LuCircleUserRound,
+  LuCross,
   LuFile,
   LuFlashlight,
   LuFlaskConical,
@@ -20,16 +23,29 @@ import {
   LuNewspaper,
   LuUser,
   LuWrench,
+  LuX,
 } from "react-icons/lu";
+import { useContext } from "react";
+import { AppContext } from "../../context/AppContext";
 export default function SidebarMobile() {
   const location = useLocation().pathname.split("/");
   const pathName = location[location.length - 1];
+  const {displaySidebarMobile,setDisplaySidebarMobile} = useContext(AppContext)
+  console.log(displaySidebarMobile)
+  //setDisplaySidebarMobile
   return (
-    <div className="sidebar_mobile_container">
-        <div className="sidebar_mobile_header">
-             <img src="./Logo.jpeg" alt="logo" />
-             <i><FaCross /></i>
-        </div>
+    <>
+      {displaySidebarMobile && (
+        <div
+          className="sidebar_mobile_overlay"
+          onClick={() => setDisplaySidebarMobile(false)}
+        />
+      )}
+      <div className="sidebar_mobile_container" style={{transform:displaySidebarMobile ? "translateX(0%)":"translateX(100%)"}}>
+          <div className="sidebar_mobile_header">
+               <img src="./Logo.jpeg" alt="logo" />
+               <i onClick={() => setDisplaySidebarMobile(false)}><LuX /></i>
+          </div>
      
       <div className="sidebar_mobile_links">
         <NavLink to={"/"} style={{ textDecoration: "none" }}>
@@ -39,6 +55,7 @@ export default function SidebarMobile() {
               color: `${pathName === "" ? "indigo" : "black"}`,
               backgroundColor: `${pathName === "" ? "rgb(233, 213, 248)" : ""}`,
             }}
+            onClick={() => setDisplaySidebarMobile(false)}
           >
             <LuHouse /> <span>Home</span>
           </p>
@@ -49,6 +66,7 @@ export default function SidebarMobile() {
               color: `${pathName === "about" ? "indigo" : "black"}`,
               backgroundColor: `${pathName === "about" ? "rgb(233, 213, 248)" : ""}`,
             }}
+            onClick={() => setDisplaySidebarMobile(false)}
           >
             <LuUser /> <span>About</span>
           </p>
@@ -59,6 +77,7 @@ export default function SidebarMobile() {
               color: `${pathName === "projects" ? "indigo" : "black"}`,
               backgroundColor: `${pathName === "projects" ? "rgb(233, 213, 248)" : ""}`,
             }}
+            onClick={() => setDisplaySidebarMobile(false)}
           >
             <LuFile />
             <span>Projects</span>
@@ -70,6 +89,7 @@ export default function SidebarMobile() {
               color: `${pathName === "tools" ? "indigo" : "black"}`,
               backgroundColor: `${pathName === "tools" ? "rgb(233, 213, 248)" : ""}`,
             }}
+            onClick={() => setDisplaySidebarMobile(false)}
           >
             <LuWrench />
             <span>Tools</span>
@@ -81,6 +101,7 @@ export default function SidebarMobile() {
               color: `${pathName === "learning" ? "indigo" : "black"}`,
               backgroundColor: `${pathName === "learning" ? "rgb(233, 213, 248)" : ""}`,
             }}
+            onClick={() => setDisplaySidebarMobile(false)}
           >
             <LuBookOpenText /> <span>Learning</span>
           </p>
@@ -91,6 +112,7 @@ export default function SidebarMobile() {
               color: `${pathName === "laboratory" ? "indigo" : "black"}`,
               backgroundColor: `${pathName === "laboratory" ? "rgb(233, 213, 248)" : ""}`,
             }}
+            onClick={() => setDisplaySidebarMobile(false)}
           >
             <LuFlaskConical />
             <span>Laboratory</span>
@@ -102,6 +124,7 @@ export default function SidebarMobile() {
               color: `${pathName === "blogs" ? "indigo" : "black"}`,
               backgroundColor: `${pathName === "blogs" ? "rgb(233, 213, 248)" : ""}`,
             }}
+            onClick={() => setDisplaySidebarMobile(false)}
           >
             <LuNewspaper />
             <span>Blogs</span>
@@ -109,5 +132,6 @@ export default function SidebarMobile() {
         </NavLink>
       </div>
     </div>
+    </>
   );
 }

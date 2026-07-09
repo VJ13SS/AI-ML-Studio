@@ -20,7 +20,7 @@ export default function Laboratory() {
 
   const onSubmitHandler = async () => {
 
-    if(!dataset || !data.problemType || data.targetCol || data.test_size){
+    if(!dataset || !data.problemType || !data.targetCol || !data.test_size){
       alert("Some Fields Missing")
       return
     }
@@ -74,11 +74,19 @@ export default function Laboratory() {
             <span className="laboratory-step-title">
               Click to upload Dataset
             </span>
-            <label htmlFor="upload-dataset">
-            
-                {dataset === null ? <i><LuFile /></i> : <i style={{ color: "green"}}><LuCheck /></i>}
-                
-              
+            <label htmlFor="upload-dataset" className="laboratory-upload-zone">
+              {dataset === null ? (
+                <div className="upload-placeholder">
+                  <i><LuFile /></i>
+                  <span className="upload-title">Drag & drop your file here</span>
+                  <span className="upload-subtitle">or click to browse from device</span>
+                </div>
+              ) : (
+                <div className="upload-success">
+                  <i style={{ color: "green" }}><LuCheck /></i>
+                  <span className="upload-title">Dataset selected successfully</span>
+                </div>
+              )}
               <input
                 type="file"
                 name=""
@@ -91,15 +99,15 @@ export default function Laboratory() {
             </label>
             {dataset !== null ? (
               <span
-                style={{ color: "green", fontWeight: "bold", fontSize: "16px" }}
+                style={{ color: "green", fontWeight: "bold", fontSize: "14px", textAlign: "center" }}
               >
-                DataSet Uploaded : {dataset.name}
+                DataSet Uploaded: {dataset.name}
               </span>
             ) : (
               <span
-                style={{ fontWeight: "bold", color: "gray", fontSize: "13px" }}
+                style={{ fontWeight: "500", color: "#6b7280", fontSize: "12px", textAlign: "center" }}
               >
-                Only .csv,.xlsx files supported
+                Only .csv, .xlsx files supported (Max 50MB)
               </span>
             )}
           </div>
@@ -138,64 +146,27 @@ export default function Laboratory() {
         {resultAnalysis ?
 
         <div className="laboratory-results">
-          <span className="resilt-problem">Problem Type : {resultAnalysis.
-problem_type}</span>
-{resultAnalysis?.results?.map((item,idx) => (
-  <div className={`model ${resultAnalysis.better_models?.includes(item.model) ? "better_model":""}`}>
-            <span>{item.model}</span>
-            <ul>
-              {item?.metrics?.map((metric,idx) => (<li>{metric.metric} : {metric.value}</li>))}
-            </ul>
-          </div>
-))}
+          <span className="result-problem">Problem Type: {resultAnalysis.problem_type}</span>
+          {resultAnalysis?.results?.map((item, idx) => {
+            const isBetter = resultAnalysis.better_models?.includes(item.model);
+            return (
+              <div key={idx} className={`model ${isBetter ? "better_model" : ""}`}>
+                <div className="model-card-header">
+                  <span className="model-name">{item.model}</span>
+                  {isBetter && <span className="best-model-badge">⭐ Best Model</span>}
+                </div>
+                <div className="laboratory-metrics-grid">
+                  {item?.metrics?.map((metric, mIdx) => (
+                    <div key={mIdx} className="metric-item">
+                      <span className="metric-label">{metric.metric}</span>
+                      <span className="metric-value">{metric.value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
 
-          
-          {/* 
-          <div className="model">
-            <span>Model Name </span>
-            <ul>
-              <li>metric</li>
-              <li>metric</li>
-              <li>metric</li>
-              <li>metric</li>
-            </ul>
-          </div>
-          <div className="model">
-            <span>Model Name </span>
-            <ul>
-              <li>metric</li>
-              <li>metric</li>
-              <li>metric</li>
-              <li>metric</li>
-            </ul>
-          </div>
-          <div className="model">
-            <span>Model Name </span>
-            <ul>
-              <li>metric</li>
-              <li>metric</li>
-              <li>metric</li>
-              <li>metric</li>
-            </ul>
-          </div>
-          <div className="model">
-            <span>Model Name </span>
-            <ul>
-              <li>metric</li>
-              <li>metric</li>
-              <li>metric</li>
-              <li>metric</li>
-            </ul>
-          </div>
-          <div className="model">
-            <span>Model Name </span>
-            <ul>
-              <li>metric</li>
-              <li>metric</li>
-              <li>metric</li>
-              <li>metric</li>
-            </ul>
-          </div>*/}
         </div>:<div className="laboratory-results" style={{justifyContent:"center",alignItems:"center"}}>
           <span style={{color:"blue",fontSize:"13px",fontWeight:"bold"}}>Your Results Appear Here</span>
           {analysing && <p  className="analyse_info">Analysing Data...!</p>}
