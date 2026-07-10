@@ -18,25 +18,28 @@ def home():
 @app.route('/run-analysis',methods=["POST"])
 def run_analysis():
 
-    file = request.files['file']
-    problem_type = request.form["problem_type"].lower()
-    target_column = request.form["target_column"]
-    split_ratio = float(request.form["split_ratio"])
-
-    
-    df = pd.read_csv(file)
-
-    if target_column not in df.columns:
-        return jsonify({"error":"Target Column not found"})
-    
-    laboratory_items = {
+    try:
+        file = request.files['file']
+        problem_type = request.form["problem_type"].lower()
+        target_column = request.form["target_column"]
+        split_ratio = float(request.form["split_ratio"])
+        
+        df = pd.read_csv(file)
+        if target_column not in df.columns:
+            return jsonify({"success":False,"message":"Target Column not found"})
+        
+        laboratory_items = {
         "regression":laboratory_regression,
         "classification":laboratory_classification,
         "nlp_classification":laboratory_nlp_classification
-    }
+        }
+        
+        res = laboratory_items[problem_type](df,target_column,split_ratio)
+        return jsonify({"success":True,"results":res})
+    except:
+        return jsonify({"success":False,"message":"An Error Occured.Check Your Inputs"})
 
-    res = laboratory_items[problem_type](df,target_column,split_ratio)
-    return jsonify(res)
+    
 
 if __name__ == '__main__':
     app.run(debug=True)

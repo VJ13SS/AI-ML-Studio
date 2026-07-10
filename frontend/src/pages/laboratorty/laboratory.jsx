@@ -37,10 +37,14 @@ export default function Laboratory() {
       formData,
     );
 
-   
-    setResultAnalysis(response.data)
+    if(!response.data.success){
+      alert(response.data.message)
+    }else{
+          setResultAnalysis(response.data.results)
+    }
     setAnalysing(false)
     console.log(response.data)
+
   };
   return (
     <div className="laboratory">
