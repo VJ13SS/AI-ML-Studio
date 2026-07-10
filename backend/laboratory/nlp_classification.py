@@ -1,4 +1,4 @@
-import pandas as pd
+
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.preprocessing import LabelEncoder
@@ -10,28 +10,13 @@ from sklearn.ensemble import RandomForestClassifier
 
 from sklearn.metrics import accuracy_score,precision_score,recall_score,f1_score
 
-def laboratory_nlp_classification(df,target,test_size = 0.2):
+def laboratory_nlp_classification(X_train, X_test, y_train, y_test):
     models = {
     "Logistic Regression": LogisticRegression(),
     "Naive Bayes": MultinomialNB(),
     "Linear SVM": LinearSVC(),
     "Random Forest":RandomForestClassifier(n_estimators=100,random_state=42)
 }
-
-    df.dropna(inplace=True)
-
-    y = df[target]
-    X = df.drop(target,axis = 1)
-
-    encoder =  LabelEncoder()
-    y = encoder.fit_transform(y)
-
-    X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=test_size,random_state=42,stratify=y)
-
-    vectorizer = TfidfVectorizer(stop_words="english",max_features=5000)
-
-    X_train = vectorizer.fit_transform(X_train)
-    X_test = vectorizer.transform(X_test)
 
     better_f1 = 0
     better_models = []
