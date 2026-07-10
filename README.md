@@ -23,31 +23,66 @@ This repository is designed for students, beginners, and developers who want to 
 ```text
 AI_ML_Studio/
 ├── backend/
-│   ├── laboratory/
-│   └── projects/
+│   └── laboratory/
+│       ├── classification.py
+│       ├── laboratory.py
+│       ├── nlp_classification.py
+│       ├── preprocessing.py
+│       ├── preprocessing_README.md
+│       └── regression.py
 └── frontend/
+    ├── index.html
+    ├── package.json
+    ├── vite.config.js
     ├── public/
+    │   ├── favicon.svg
+    │   ├── icons.svg
+    │   └── (images & assets)
     └── src/
+        ├── App.jsx
+        ├── App.css
+        ├── main.jsx
+        ├── assets/
+        ├── components/
+        │   ├── hero/
+        │   ├── navbar/
+        │   ├── sidebar/
+        │   └── sidebar_mobile/
+        ├── context/
+        │   └── AppContext.jsx
+        └── pages/
+            ├── about/
+            ├── blogs/
+            ├── home/
+            ├── laboratorty/
+            ├── learning/
+            ├── projects/
+            └── tools/
 ```
 
-- backend/ contains Python scripts and ML example implementations
-- frontend/ contains the React web application
+- `backend/laboratory/` — Python ML scripts for classification, regression, NLP, and data preprocessing experiments
+- `frontend/src/components/` — Reusable UI components (hero, loader, navbar, sidebar, sidebar_mobile)
+- `frontend/src/pages/` — Page-level views for each route (home, about, learning, projects, laboratory, tools, blogs)
+- `frontend/src/context/` — App-wide state via React Context
 
 ## Tech Stack
 
 ### Frontend
 
-- React
-- Vite
-- React Router
-- React Icons
+- React 19
+- Vite 8
+- React Router DOM 7
+- React Icons 5
 - Axios
 
 ### Backend
 
-- Python
-- Machine learning example scripts
-- Modular experiment and project files
+- Python 3
+- `classification.py` — classification model experiments
+- `regression.py` — regression model experiments
+- `nlp_classification.py` — NLP text classification
+- `preprocessing.py` — data preprocessing utilities
+- `laboratory.py` — general lab runner script
 
 ## Getting Started
 
@@ -74,13 +109,13 @@ AI_ML_Studio/
 
 ### Backend Setup
 
-1. Open the backend folder:
+1. Navigate to the laboratory folder:
    ```bash
-   cd backend
+   cd backend/laboratory
    ```
-2. Run any Python script you want to explore:
+2. Run the Python script:
    ```bash
-   python <script_name>.py
+   python laboratory.py
    ```
 
 ## Main Pages

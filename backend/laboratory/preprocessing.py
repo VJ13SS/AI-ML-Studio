@@ -1,7 +1,6 @@
 """
-preprocessing.py
 Generic preprocessing pipeline for tabular (regression/classification)
-and NLP problems. Plug this in right before your train/test split.
+and NLP problems.
 """
 import pandas as pd
 import numpy as np
@@ -12,10 +11,8 @@ from sklearn.preprocessing import StandardScaler, OneHotEncoder, LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 
+# Detect column types
 
-# ---------------------------------------------------------
-# STEP 1: Detect column types
-# ---------------------------------------------------------
 def is_date_like(series, sample_size=20):
     sample = series.dropna().astype(str).head(sample_size)
     if len(sample) == 0:
@@ -57,9 +54,8 @@ def profile_columns(df: pd.DataFrame, target_col: str):
     return profile
 
 
-# ---------------------------------------------------------
-# STEP 2: Expand datetime columns into numeric features
-# ---------------------------------------------------------
+# Expand datetime columns into numeric features
+
 def expand_datetime_cols(df: pd.DataFrame, date_cols: list):
     df = df.copy()
     for col in date_cols:
@@ -71,10 +67,8 @@ def expand_datetime_cols(df: pd.DataFrame, date_cols: list):
         df.drop(columns=[col], inplace=True)
     return df
 
-
-# ---------------------------------------------------------
 # STEP 3: Build the ColumnTransformer based on the profile
-# ---------------------------------------------------------
+
 def build_preprocessor(profile: dict):
     numeric_cols = [c for c, t in profile.items() if t == "numeric"]
     categorical_cols = [c for c, t in profile.items() if t == "categorical"]
@@ -102,9 +96,8 @@ def build_preprocessor(profile: dict):
     return preprocessor
 
 
-# ---------------------------------------------------------
 # STEP 4: Handle the target column
-# ---------------------------------------------------------
+
 def process_target(y: pd.Series, problem_type: str):
     if problem_type == "classification" and y.dtype == object:
         le = LabelEncoder()
@@ -113,9 +106,8 @@ def process_target(y: pd.Series, problem_type: str):
     return y.values, None
 
 
-# ---------------------------------------------------------
 # STEP 5: NLP-specific preprocessing
-# ---------------------------------------------------------
+
 def detect_text_column(X: pd.DataFrame):
     text_candidates = X.select_dtypes(include="object")
     if text_candidates.shape[1] == 0:
@@ -134,9 +126,8 @@ def build_nlp_preprocessor(max_features=5000):
     )
 
 
-# ---------------------------------------------------------
-# MAIN ENTRY POINT
-# ---------------------------------------------------------
+# Main 
+
 def run_preprocessing(df: pd.DataFrame, target_col: str, problem_type: str, test_size: float):
     """
     df           : raw uploaded dataframe
@@ -187,28 +178,3 @@ def run_preprocessing(df: pd.DataFrame, target_col: str, problem_type: str, test
     X_test_proc = preprocessor.transform(X_test)
 
     return X_train_proc, X_test_proc, y_train, y_test
-
-
-# ---------------------------------------------------------
-# Example usage (remove/comment out in production)
-# ---------------------------------------------------------
-"""
-if __name__ == "__main__":
-    # Quick manual test
-    data = {
-        "age": [25, 30, 45, np.nan, 35],
-        "city": ["NY", "LA", "NY", "SF", "LA"],
-        "salary": [50000, 60000, 80000, 55000, 62000]
-    }
-    test_df = pd.DataFrame(data)
-
-    X_train, X_test, y_train, y_test = run_preprocessing(
-        test_df, target_col="salary", problem_type="regression", test_size=0.4
-    )
-
-    print("X_train shape:", X_train.shape)
-    print("X_test shape:", X_test.shape)
-    print("y_train:", y_train)
-    print("y_test:", y_test)
-
-"""

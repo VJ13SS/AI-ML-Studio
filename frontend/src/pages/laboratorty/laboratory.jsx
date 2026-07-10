@@ -95,7 +95,7 @@ export default function Laboratory() {
                 type="file"
                 name=""
                 id="upload-dataset"
-                accept=".csv,.xlsx"
+                accept=".csv"
                 hidden
                 onChange={(e) => setDataset(e.target.files[0])}
                 required
@@ -111,7 +111,7 @@ export default function Laboratory() {
               <span
                 style={{ fontWeight: "500", color: "#6b7280", fontSize: "12px", textAlign: "center" }}
               >
-                Only .csv, .xlsx files supported (Max 50MB)
+                Only .csv files supported (Max 50MB)
               </span>
             )}
           </div>
